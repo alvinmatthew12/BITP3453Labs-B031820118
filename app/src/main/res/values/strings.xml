@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BITP3454Labs</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="your_year_of_birth">Your year of birth?</string>
+    <string name="click_me">Click Me</string>
+    <string name="to_new_activity">To new activity</string>
+    <string name="take_picture">Take Picture!</string>
+</resources>

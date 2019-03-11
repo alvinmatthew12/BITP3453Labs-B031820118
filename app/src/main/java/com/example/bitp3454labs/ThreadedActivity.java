@@ -65,7 +65,6 @@ public class ThreadedActivity extends AppCompatActivity {
         Intent resultIntent = new Intent();
         resultIntent.putExtra("bp", bp);
         setResult(RESULT_OK, resultIntent);
-        finish();
     }
 
 }

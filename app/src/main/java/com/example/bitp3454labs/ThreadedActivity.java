@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
 public class ThreadedActivity extends AppCompatActivity {
 
     ImageView iv;
@@ -20,10 +23,10 @@ public class ThreadedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_threaded);
 
-        iv = (ImageView)findViewById(R.id.imgVwProfile);
+        iv = findViewById(R.id.imgVwProfile);
         Intent intent = getIntent();
-        String strMsg = ((Intent) intent).getStringExtra("varStr1");
-        Age = ((Intent) intent).getIntExtra("varInt1",0);
+        String strMsg = intent.getStringExtra("varStr1");
+        Age = intent.getIntExtra("varInt1",0);
 
         tv1 = findViewById(R.id.txtVwHello);
         tv1.setText("Hello and welcome "+strMsg + " you are " + Age +" years old.");
@@ -34,14 +37,12 @@ public class ThreadedActivity extends AppCompatActivity {
         Runnable run = new Runnable() {
             @Override
             public void run() {
-                Log.d("A", "A");
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent,0);
 
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Log.d("B", "B");
                         tv1.setText(tv1.getText().toString()+"..This is your Picture hehe..");
                     }
                 });
@@ -56,11 +57,16 @@ public class ThreadedActivity extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        Log.d("C", "C");
         super.onActivityResult(requestCode,resultCode,data);
 
-        Log.d("D", "D");
         Bitmap bp = (Bitmap) data.getExtras().get("data");
         iv.setImageBitmap(bp);
+
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("bp", bp);
+        setResult(RESULT_OK, resultIntent);
+        finish();
     }
+
 }
+

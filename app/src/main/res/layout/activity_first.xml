@@ -10,8 +10,7 @@
         android:id="@+id/edtTxtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="@string/enter_your_name"
         android:inputType="textPersonName"
@@ -22,8 +21,7 @@
         android:id="@+id/edtYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="229dp"
+        android:layout_marginTop="160dp"
         android:ems="10"
         android:hint="@string/your_year_of_birth"
         android:inputType="number"
@@ -34,7 +32,7 @@
         android:id="@+id/btnMe"
         android:layout_width="201dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="63dp"
+        android:layout_marginTop="40dp"
         android:onClick="fnThreadActivity"
         android:text="@string/to_new_activity"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,8 +43,9 @@
         android:id="@+id/txtvwAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
@@ -54,11 +53,22 @@
         android:id="@+id/button"
         android:layout_width="208dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:onClick="fnGreet"
         android:text="@string/click_me"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtYear" />
+
+    <ImageView
+        android:id="@+id/imgVwFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="74dp"
+        app:layout_constraintStart_toStartOf="@+id/btnMe"
+        app:layout_constraintTop_toBottomOf="@+id/btnMe"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </android.support.constraint.ConstraintLayout>
